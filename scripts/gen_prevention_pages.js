@@ -205,6 +205,39 @@ const CITIES = {
       "고압세척": photo("highpressure-yard-work.jpg"),
     },
   },
+  "화성": {
+    intro: `평택 바로 북쪽에 인접한 화성시도 접수 즉시 확인 후 신속하게 연결해 드리는 서비스 권역입니다.`,
+    hubPhoto: photo("equipment-spring-camera.jpg"),
+    photos: {
+      "하수구막힘": photo("pipe-scope-inspection.jpg"),
+      "변기막힘": photo("toilet-out-of-order.jpg"),
+      "싱크대막힘": photo("sink-clog-debris.jpg"),
+      "누수": photo("equipment-spring-camera.jpg"),
+      "고압세척": photo("highpressure-yard-work.jpg"),
+    },
+  },
+  "아산": {
+    intro: `평택과 맞닿은 아산시는 평택·안성·천안과 함께 소변기막힘 등으로 실제 출동한 이력이 있는 지역입니다.`,
+    hubPhoto: photo("toilet-out-of-order.jpg"),
+    photos: {
+      "하수구막힘": photo("pipe-scope-inspection.jpg"),
+      "변기막힘": photo("toilet-out-of-order.jpg"),
+      "싱크대막힘": photo("sink-clog-debris.jpg"),
+      "누수": photo("equipment-spring-camera.jpg"),
+      "고압세척": photo("market-kitchen-drain-work.jpg"),
+    },
+  },
+  "천안동남구": {
+    intro: `천안시는 서북구 불당동·두정동 등에서 싱크대막힘, 하수구막힘으로 실제 출동한 이력이 있는 지역입니다. 동남구 권역도 접수 즉시 확인 후 신속하게 연결해 드립니다.`,
+    hubPhoto: photo("pipe-scale-buildup.jpg"),
+    photos: {
+      "하수구막힘": photo("pipe-scale-buildup.jpg"),
+      "변기막힘": photo("toilet-out-of-order.jpg"),
+      "싱크대막힘": photo("sink-clog-debris.jpg"),
+      "누수": photo("equipment-spring-camera.jpg"),
+      "고압세척": photo("highpressure-yard-work.jpg"),
+    },
+  },
 };
 
 function symptomPageHtml(area, sym) {
