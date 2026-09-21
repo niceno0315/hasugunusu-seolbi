@@ -64,7 +64,7 @@ for area in "${AREAS[@]}"; do
       <a href="../index.html#how">이용 방법</a>
       <a href="../index.html#faq">자주 묻는 질문</a>
     </nav>
-    <span class="nav-call">📞 상담 번호 준비중</span>
+    <a class="nav-call" href="tel:010-2159-5341">📞 010-2159-5341</a>
   </div>
 </header>
 
@@ -133,7 +133,7 @@ HTML
       <a href="../index.html#how">이용 방법</a>
       <a href="../index.html#faq">자주 묻는 질문</a>
     </nav>
-    <span class="nav-call">📞 상담 번호 준비중</span>
+    <a class="nav-call" href="tel:010-2159-5341">📞 010-2159-5341</a>
   </div>
 </header>
 
