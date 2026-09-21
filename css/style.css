@@ -529,6 +529,9 @@ footer.site {
 .case-article h2:first-of-type { margin-top: 0; }
 .case-article p { margin: 0 0 16px; color: var(--navy); font-size: 15.5px; line-height: 1.8; }
 .case-article ul { margin: 0 0 16px; padding-left: 20px; color: var(--navy); font-size: 15.5px; line-height: 1.8; }
+.case-article figure { margin: 8px 0 32px; }
+.case-article figure img.full { margin-bottom: 8px; }
+.case-article figcaption { color: var(--steel); font-size: 13px; line-height: 1.6; text-align: center; }
 
 /* ---------- 플로팅 콜버튼 (모바일) ---------- */
 .float-call {
