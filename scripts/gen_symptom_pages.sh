@@ -49,7 +49,7 @@ for area in "${AREAS[@]}"; do
 <meta name="description" content="${area} 지역 배관막힘, 하수구막힘, 누수 등 설비 문제 접수. 접수 즉시 확인 후 신속하게 연결해 드립니다.">
 <meta name="robots" content="noindex, nofollow">
 <!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->
-<link rel="stylesheet" href="../css/style.css?v=1">
+<link rel="stylesheet" href="../css/style.css?v=2">
 </head>
 <body>
 
@@ -118,7 +118,7 @@ HTML
 <meta name="description" content="${area} ${sym} 비용, 업체, 출장 문의는 여기서 접수하세요. ${desc}, 접수 즉시 확인 후 신속하게 연결해 드립니다.">
 <meta name="robots" content="noindex, nofollow">
 <!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->
-<link rel="stylesheet" href="../css/style.css?v=1">
+<link rel="stylesheet" href="../css/style.css?v=2">
 </head>
 <body>
 

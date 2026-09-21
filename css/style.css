@@ -1,27 +1,29 @@
 /* ============================================
-   배관/하수구 긴급출동 서비스 — 디자인 시스템
-   Palette: Sky Blue #0B63B8 / Steel #4C6478 / Amber #FF9F1C
-            Copper #E8590C / Bone #F6FAFE / Teal(trust) #0EA5A0
-   Font: Pretendard (본문/제목 모두 — 가독성 우선)
+   뉴월드 — 배관·설비 접수/연계 네트워크 디자인 시스템
+   Palette: Deep Teal #0F766E / Slate #475569 / Coral #FF6B4A
+            Violet(accent) #7C3AED / Mist #F0FDFA / Emerald(trust) #059669
+   Font: Pretendard
+   Concept: "네트워크로 연결된다"는 느낌 — 각지고 딱딱한 파이프 라인 대신
+   둥근 노드·연결선 모티프, 어두운 히어로 배경으로 고고고설비(밝은 하늘색/파이프 톤)와 구분
    ============================================ */
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css');
 
 :root {
-  --ink: #0B63B8;
-  --ink-soft: #1174CE;
-  --navy: #0B2E4E;
-  --steel: #52697D;
-  --steel-line: #3480C9;
-  --amber: #FF9F1C;
-  --amber-bright: #FFC24D;
-  --copper: #E0530A;
-  --bone: #F6FAFE;
-  --bone-dim: #E3EEF8;
-  --teal: #0B8E89;
-  --teal-bright: #2DD4C6;
-  --danger: #EF4444;
-  --radius: 4px;
+  --ink: #0F766E;
+  --ink-soft: #14B8A6;
+  --navy: #0B1B1E;
+  --steel: #5B6B6E;
+  --steel-line: #2DD4BF;
+  --amber: #FF6B4A;
+  --amber-bright: #FF8B6E;
+  --copper: #7C3AED;
+  --bone: #F0FDFA;
+  --bone-dim: #D9F2EC;
+  --teal: #059669;
+  --teal-bright: #34D399;
+  --danger: #E11D48;
+  --radius: 14px;
   --max: 1120px;
 }
 
@@ -58,8 +60,9 @@ img { max-width: 100%; display: block; }
 }
 .eyebrow::before {
   content: "";
-  width: 22px;
-  height: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   background: var(--copper);
   display: inline-block;
 }
@@ -84,7 +87,7 @@ header.site {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--bone-dim);
-  box-shadow: 0 2px 12px rgba(11,99,184,0.06);
+  box-shadow: 0 2px 12px rgba(15,118,110,0.08);
 }
 .nav {
   display: flex;
@@ -112,23 +115,24 @@ header.site {
 .nav-links a { opacity: 0.8; }
 .nav-links a:hover { opacity: 1; color: var(--ink); }
 .nav-call {
-  background: var(--amber);
-  color: var(--navy);
+  background: var(--navy);
+  color: #fff;
   font-weight: 800;
-  padding: 12px 20px;
-  border-radius: var(--radius);
+  padding: 12px 22px;
+  border-radius: 999px;
   font-size: 15.5px;
   white-space: nowrap;
 }
 .nav-menu-toggle { display: none; }
 
-/* ---------- 히어로 ---------- */
+/* ---------- 히어로 (어두운 네트워크 배경) ---------- */
 .hero {
   background:
-    radial-gradient(ellipse at 85% 0%, rgba(11,99,184,0.08), transparent 55%),
-    linear-gradient(180deg, #EAF4FF 0%, #FFFFFF 100%);
-  color: var(--navy);
-  padding: 72px 0 56px;
+    radial-gradient(circle at 12% 20%, rgba(124,58,237,0.35), transparent 40%),
+    radial-gradient(circle at 85% 0%, rgba(45,212,191,0.25), transparent 50%),
+    linear-gradient(180deg, #0B1B1E 0%, #0F2A28 100%);
+  color: #fff;
+  padding: 80px 0 60px;
   position: relative;
   overflow: hidden;
 }
@@ -142,12 +146,12 @@ header.site {
 .hero h1 {
   font-size: 46px;
   margin-bottom: 18px;
-  color: var(--navy);
+  color: #fff;
 }
-.hero h1 .hl { color: var(--ink); }
+.hero h1 .hl { color: var(--teal-bright); }
 .hero p.lead {
   font-size: 17px;
-  color: var(--steel);
+  color: #A9C4C0;
   max-width: 46ch;
   margin-bottom: 28px;
 }
@@ -161,49 +165,50 @@ header.site {
   font-family: 'Pretendard Variable', sans-serif;
   font-weight: 800;
   font-size: 30px;
-  color: var(--ink);
+  color: var(--teal-bright);
   display: block;
 }
-.stat span { font-size: 13px; color: var(--steel); }
+.stat span { font-size: 13px; color: #A9C4C0; }
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 15px 26px;
-  border-radius: var(--radius);
+  border-radius: 999px;
   font-weight: 800;
   font-size: 15px;
   border: 2px solid transparent;
   cursor: pointer;
 }
-.btn-primary { background: var(--amber); color: var(--navy); }
+.btn-primary { background: var(--amber); color: #fff; }
 .btn-primary:hover { background: var(--amber-bright); }
-.btn-outline { border-color: var(--ink); color: var(--navy); background: #fff; }
-.btn-outline:hover { border-color: var(--copper); color: var(--copper); }
+.btn-outline { border-color: rgba(255,255,255,0.4); color: #fff; background: transparent; }
+.btn-outline:hover { border-color: var(--teal-bright); color: var(--teal-bright); }
 
 .hero-card {
-  background: #fff;
-  border: 1px solid var(--bone-dim);
-  border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius);
   padding: 26px;
-  box-shadow: 0 12px 32px rgba(11,99,184,0.10);
+  backdrop-filter: blur(6px);
 }
-.hero-card h3 { color: var(--ink); font-size: 17px; margin-bottom: 14px; }
+.hero-card h3 { color: #fff; font-size: 17px; margin-bottom: 14px; }
 .diag-row {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px dashed var(--bone-dim);
+  border-bottom: 1px dashed rgba(255,255,255,0.15);
   font-size: 14px;
+  color: #DCEAE8;
 }
 .diag-row:last-child { border-bottom: none; }
-.diag-row span:last-child { color: var(--teal); font-weight: 700; }
+.diag-row span:last-child { color: var(--teal-bright); font-weight: 700; }
 
 /* ---------- 신뢰 배지 스트립 ---------- */
 .trustbar {
   background: var(--bone-dim);
-  border-bottom: 1px solid #CFE3F5;
+  border-bottom: 1px solid #BEEAE0;
   padding: 18px 0;
 }
 .trustbar .wrap {
@@ -216,7 +221,7 @@ header.site {
   color: var(--steel);
 }
 .trustbar span { display: flex; align-items: center; gap: 8px; }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); display: inline-block; }
 
 /* ---------- 신뢰 문구 배너 ---------- */
 .quote-band {
@@ -241,39 +246,40 @@ section { padding: 72px 0; }
 .section-head h2 { font-size: 32px; }
 .section-head p { color: var(--steel); margin-top: 12px; font-size: 15px; }
 
-/* ---------- 증상 카드 (핵심 시그니처 요소: 파이프라인 다이어그램) ---------- */
+/* ---------- 증상/단계 카드 (핵심 시그니처 요소: 연결 노드) ---------- */
 .symptom-line {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border: 1px solid var(--bone-dim);
-  border-radius: 6px;
-  overflow: hidden;
-  background: #fff;
+  gap: 16px;
 }
 .symptom-card {
-  padding: 30px 26px;
-  border-right: 1px solid var(--bone-dim);
-  border-bottom: 1px solid var(--bone-dim);
+  padding: 28px 24px;
+  background: var(--bone);
+  border: 1px solid var(--bone-dim);
+  border-radius: var(--radius);
   position: relative;
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
-.symptom-card:nth-child(3n) { border-right: none; }
+.symptom-card:hover { transform: translateY(-3px); border-color: var(--ink-soft); }
 .symptom-card .num {
   font-family: 'Pretendard Variable', sans-serif;
   font-weight: 800;
   font-size: 13px;
-  color: var(--amber);
-  background: var(--ink);
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 3px;
+  color: #fff;
+  background: var(--copper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   margin-bottom: 14px;
 }
 .symptom-card h3 { font-size: 18px; margin-bottom: 8px; }
 .symptom-card p { font-size: 13.5px; color: var(--steel); margin-bottom: 14px; }
-.symptom-card .price { font-weight: 800; color: var(--copper); font-size: 14px; }
-.symptom-card a.more { font-size: 13px; font-weight: 700; color: var(--teal); margin-top: 10px; display: inline-block; }
+.symptom-card .price { font-weight: 800; color: var(--amber); font-size: 14px; }
+.symptom-card a.more { font-size: 13px; font-weight: 700; color: var(--ink); margin-top: 10px; display: inline-block; }
 
 /* ---------- 시공 사례 ---------- */
 .portfolio-grid {
@@ -285,7 +291,7 @@ section { padding: 72px 0; }
   display: block;
   background: #fff;
   border: 1px solid var(--bone-dim);
-  border-radius: 6px;
+  border-radius: var(--radius);
   overflow: hidden;
 }
 .portfolio-card:hover { border-color: var(--amber); }
@@ -308,12 +314,12 @@ section { padding: 72px 0; }
   position: absolute;
   left: 10px;
   bottom: 10px;
-  background: rgba(11,46,78,0.85);
+  background: rgba(11,27,30,0.85);
   color: #fff;
   font-size: 11.5px;
   font-weight: 700;
   padding: 4px 10px;
-  border-radius: 4px;
+  border-radius: 999px;
   letter-spacing: 0.01em;
 }
 .portfolio-card h4 { font-size: 15.5px; margin: 16px 18px 6px; }
@@ -322,9 +328,9 @@ section { padding: 72px 0; }
 /* ---------- FAQ ---------- */
 .faq-list { display: flex; flex-direction: column; gap: 12px; }
 .faq-item {
-  background: #fff;
+  background: var(--bone);
   border: 1px solid var(--bone-dim);
-  border-radius: 6px;
+  border-radius: var(--radius);
   padding: 4px 22px;
 }
 .faq-item summary {
@@ -352,27 +358,30 @@ section { padding: 72px 0; }
 
 /* ---------- 지역+증상 커버리지 (SEO 핵심 섹션) ---------- */
 .coverage {
-  background: var(--bone-dim);
-  color: var(--navy);
+  background: var(--navy);
+  color: #fff;
 }
-.coverage .section-head p { color: var(--steel); }
+.coverage .section-head p { color: #A9C4C0; }
+.coverage .eyebrow { color: var(--teal-bright); }
+.coverage .eyebrow::before { background: var(--teal-bright); }
 .coverage-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
 }
 .coverage-grid a {
-  background: #fff;
-  border: 1px solid #CFE3F5;
-  border-radius: var(--radius);
-  padding: 14px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 14px 18px;
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--navy);
+  color: #fff;
+  text-align: center;
 }
-.coverage-grid a:hover { border-color: var(--ink); color: var(--ink); }
+.coverage-grid a:hover { border-color: var(--teal-bright); color: var(--teal-bright); }
 
-/* ---------- 후기 (당근형 소셜프루프) ---------- */
+/* ---------- 후기 ---------- */
 .reviews-strip {
   display: flex;
   align-items: baseline;
@@ -384,7 +393,7 @@ section { padding: 72px 0; }
   font-family: 'Pretendard Variable', sans-serif;
   font-weight: 800;
   font-size: 44px;
-  color: var(--copper);
+  color: var(--amber);
 }
 .reviews-grid {
   display: grid;
@@ -392,9 +401,9 @@ section { padding: 72px 0; }
   gap: 18px;
 }
 .review-card {
-  background: #fff;
+  background: var(--bone);
   border: 1px solid var(--bone-dim);
-  border-radius: 6px;
+  border-radius: var(--radius);
   padding: 22px;
 }
 .review-card .who {
@@ -405,15 +414,15 @@ section { padding: 72px 0; }
   color: var(--steel);
   margin-bottom: 10px;
 }
-.review-card .stars { color: var(--copper); letter-spacing: 2px; margin-bottom: 8px; }
+.review-card .stars { color: var(--amber); letter-spacing: 2px; margin-bottom: 8px; }
 .review-card p { font-size: 14px; }
 .review-card .reply {
   margin-top: 12px;
   padding: 10px 12px;
-  background: var(--bone);
-  border-radius: 4px;
+  background: #fff;
+  border-radius: 8px;
   font-size: 12.5px;
-  color: var(--teal);
+  color: var(--ink);
 }
 
 /* ---------- 가격표 ---------- */
@@ -424,7 +433,7 @@ section { padding: 72px 0; }
   border-bottom: 1px solid var(--bone-dim);
 }
 .price-table th { color: var(--steel); font-size: 12.5px; letter-spacing: 0.04em; text-transform: uppercase; }
-.price-table td.amt { color: var(--copper); font-weight: 800; white-space: nowrap; }
+.price-table td.amt { color: var(--amber); font-weight: 800; white-space: nowrap; }
 .price-note { font-size: 12.5px; color: var(--steel); margin-top: 14px; }
 
 /* ---------- 프로세스 ---------- */
@@ -434,8 +443,8 @@ section { padding: 72px 0; }
   font-family: 'Pretendard Variable', sans-serif;
   font-weight: 900;
   font-size: 34px;
-  color: var(--bone-dim);
-  -webkit-text-stroke: 1.5px var(--amber);
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--copper);
   display: block;
   margin-bottom: 10px;
 }
@@ -444,30 +453,30 @@ section { padding: 72px 0; }
 
 /* ---------- CTA 배너 ---------- */
 .cta-band {
-  background: linear-gradient(120deg, var(--amber), var(--amber-bright));
-  color: var(--navy);
+  background: linear-gradient(120deg, var(--ink), var(--ink-soft));
+  color: #fff;
   padding: 50px 0;
   text-align: center;
 }
 .cta-band h2 { font-size: 28px; margin-bottom: 10px; }
 .cta-band p { margin-bottom: 22px; font-weight: 600; }
-.cta-band .btn-primary { background: var(--ink); color: var(--bone); }
-.cta-band .btn-primary:hover { background: var(--ink-soft); }
+.cta-band .btn-primary { background: var(--amber); color: #fff; }
+.cta-band .btn-primary:hover { background: var(--amber-bright); }
 
 /* ---------- 푸터 ---------- */
 footer.site {
   background: var(--navy);
-  color: #B9D4EC;
+  color: #A9C4C0;
   padding: 44px 0 26px;
   font-size: 13px;
 }
 .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 24px; }
-.footer-grid h5 { color: var(--bone); font-size: 14px; margin-bottom: 12px; }
+.footer-grid h5 { color: #fff; font-size: 14px; margin-bottom: 12px; }
 .footer-grid ul { list-style: none; padding: 0; margin: 0; }
 .footer-grid li { margin-bottom: 7px; }
-.footer-legal { border-top: 1px solid var(--steel-line); padding-top: 18px; font-size: 12px; line-height: 1.8; }
+.footer-legal { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 18px; font-size: 12px; line-height: 1.8; }
 
-/* ---------- 시공사례 상세글 ---------- */
+/* ---------- 시공사례/지역 상세글 ---------- */
 .case-hero {
   background: var(--bone-dim);
   padding: 44px 0 36px;
@@ -480,7 +489,7 @@ footer.site {
 .case-article img.full,
 .case-article video.full {
   width: 100%;
-  border-radius: 6px;
+  border-radius: var(--radius);
   margin: 8px 0 32px;
   display: block;
   background: #000;
@@ -499,7 +508,7 @@ footer.site {
 }
 .case-article .photo-row img {
   width: 100%;
-  border-radius: 6px;
+  border-radius: var(--radius);
   display: block;
   margin: 0;
 }
@@ -512,7 +521,7 @@ footer.site {
 .float-call {
   position: fixed;
   bottom: 18px; right: 18px;
-  background: var(--danger);
+  background: var(--amber);
   color: #fff;
   width: 58px; height: 58px;
   border-radius: 50%;
@@ -531,7 +540,6 @@ footer.site {
   .hero h1 { font-size: 32px; }
   .nav-links { display: none; }
   .symptom-line { grid-template-columns: 1fr; }
-  .symptom-card { border-right: none; }
   .portfolio-grid { grid-template-columns: 1fr; }
   .coverage-grid { grid-template-columns: repeat(2, 1fr); }
   .reviews-grid { grid-template-columns: 1fr; }
