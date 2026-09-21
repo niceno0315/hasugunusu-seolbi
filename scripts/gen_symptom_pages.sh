@@ -30,6 +30,23 @@ symptom_desc() {
   esac
 }
 
+FOOTER_BLOCK='<footer class="site">
+  <div class="wrap footer-stack">
+    <div class="footer-block">
+      <h5>하수구누수종합설비</h5>
+      <ul>
+        <li>대표자명: 황용희</li>
+        <li>사업자등록번호: 260-14-03187</li>
+        <li>주소: 경기 평택시 죽백1길 51 1층 101호</li>
+        <li>전화: 010-2159-5341</li>
+      </ul>
+    </div>
+    <div class="footer-legal">
+      © 2026 하수구누수종합설비. All rights reserved.
+    </div>
+  </div>
+</footer>'
+
 mkdir -p areas
 
 # 지역 허브 페이지: 증상별 서브페이지 링크 블록 생성
@@ -49,7 +66,7 @@ for area in "${AREAS[@]}"; do
 <meta name="description" content="${area} 지역 배관막힘, 하수구막힘, 누수 등 설비 문제 접수. 접수 즉시 확인 후 신속하게 연결해 드립니다.">
 <meta name="robots" content="noindex, nofollow">
 <!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->
-<link rel="stylesheet" href="../css/style.css?v=2">
+<link rel="stylesheet" href="../css/style.css?v=3">
 </head>
 <body>
 
@@ -71,34 +88,22 @@ for area in "${AREAS[@]}"; do
 <section class="case-hero">
   <div class="wrap">
     <a class="case-back" href="../index.html#coverage">← 출동/연계 지역으로</a>
-    <h1>${area} 배관·하수구막힘 접수 안내</h1>
-    <p class="meta">접수하신 내용을 확인해 가장 빠르게 연결해 드립니다.</p>
+    <h1>${area}, 배관·하수구막힘 어디로 접수하나요?</h1>
+    <p class="meta">아래 답변과 증상별 안내를 확인해 주세요.</p>
   </div>
 </section>
 
 <section class="case-article">
   <div class="wrap">
-    <h2>${area}, 이렇게 접수하시면 됩니다</h2>
-    <p>하수구막힘·변기막힘·싱크대막힘·누수 등 배관 관련 문제가 있으시면 접수해 주세요. ${area} 지역 접수 건은 확인 후 신속하게 연결해 안내해 드립니다. 현장 진단 후 견적에 동의하신 뒤에만 작업이 진행됩니다.</p>
+    <div class="answer-box"><b>${area}</b> 지역은 접수 즉시 확인 후 신속하게 연결해 드립니다. 하수구막힘·변기막힘·싱크대막힘·누수 등 배관 관련 문제가 있으시면 전화로 접수해 주세요. 현장 진단 후 견적에 동의하신 뒤에만 작업이 진행됩니다.</div>
     <h2>${area} 증상별 안내</h2>
-  </div>
-</section>
-
-<section id="coverage" class="coverage">
-  <div class="wrap">
-    <div class="coverage-grid">
+    <div class="coverage-tags">
 $(echo -e "$links")
     </div>
   </div>
 </section>
 
-<footer class="site">
-  <div class="wrap">
-    <div class="footer-legal">
-      © 2026 하수구누수종합설비. All rights reserved.
-    </div>
-  </div>
-</footer>
+$FOOTER_BLOCK
 
 </body>
 </html>
@@ -118,7 +123,7 @@ HTML
 <meta name="description" content="${area} ${sym} 비용, 업체, 출장 문의는 여기서 접수하세요. ${desc}, 접수 즉시 확인 후 신속하게 연결해 드립니다.">
 <meta name="robots" content="noindex, nofollow">
 <!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->
-<link rel="stylesheet" href="../css/style.css?v=2">
+<link rel="stylesheet" href="../css/style.css?v=3">
 </head>
 <body>
 
@@ -140,27 +145,20 @@ HTML
 <section class="case-hero">
   <div class="wrap">
     <a class="case-back" href="${area}.html">← ${area} 안내로</a>
-    <h1>${area} ${sym} 비용·업체·출장 안내</h1>
-    <p class="meta">접수하신 내용을 확인해 가장 빠르게 연결해 드립니다.</p>
+    <h1>${area} ${sym}, 비용·업체·출장은 어떻게 되나요?</h1>
+    <p class="meta">아래 답변을 확인하고, 접수는 전화로 바로 가능합니다.</p>
   </div>
 </section>
 
 <section class="case-article">
   <div class="wrap">
-    <h2>${area} ${sym}, 이런 문제라면 접수해 주세요</h2>
-    <p>${desc}. ${area} 지역에서 ${sym} 비용이 궁금하시거나 믿을 수 있는 업체의 출장 연결이 필요하시면 접수해 주세요. 접수 건은 확인 후 신속하게 연결해 안내해 드립니다. 현장 진단 후 견적에 동의하신 뒤에만 작업이 진행됩니다.</p>
+    <div class="answer-box">${desc}. <b>${area}</b> 지역에서 ${sym} 비용이 궁금하시거나 믿을 수 있는 업체의 출장 연결이 필요하시면 접수해 주세요. 접수 건은 확인 후 신속하게 연결해 안내해 드립니다. 현장 진단 후 견적에 동의하신 뒤에만 작업이 진행됩니다.</div>
     <h2>자주 묻는 질문</h2>
     <p>접수와 비용 관련 안내는 <a href="../index.html#faq">자주 묻는 질문</a>을 참고해 주세요.</p>
   </div>
 </section>
 
-<footer class="site">
-  <div class="wrap">
-    <div class="footer-legal">
-      © 2026 하수구누수종합설비. All rights reserved.
-    </div>
-  </div>
-</footer>
+$FOOTER_BLOCK
 
 </body>
 </html>
