@@ -143,50 +143,66 @@ const SYMPTOMS = {
 
 const SYMPTOM_KEYS = ["하수구막힘", "변기막힘", "싱크대막힘", "누수", "고압세척"];
 
-// ---------- 지역별 정보: 실제 사진 배치 (지역 공통 정보 언급 없이, 사진은 알트/캡션으로만 설명) ----------
+// ---------- 사진별 실제 출처 (어느 지역 페이지에 쓰이든 원래 출처를 그대로 표기) ----------
+const PHOTO_SOURCE = {
+  "equipment-spring-camera.jpg": { alt: "평택 소사벌 시공사례에서 사용한 전동스프링·내시경 카메라 장비", caption: "평택 소사벌 시공사례에 사용한 전동스프링·내시경 카메라 장비 사진입니다" },
+  "pipe-scope-inspection.jpg": { alt: "평택 상가철거 현장에서 내시경 카메라로 확인한 배관 내부 스케일", caption: "평택 상가철거 현장 시공사례 사진입니다 · 내시경 카메라로 확인한 배관 내부 스케일(찌든때)" },
+  "toilet-out-of-order.jpg": { alt: "변기막힘으로 사용이 중단된 현장 모습", caption: "평택·안성·천안·아산 변기막힘 출동 시공사례 사진입니다" },
+  "sink-clog-debris.jpg": { alt: "평택 세교동 시공사례에서 확인한 싱크대 배수구 내부 음식물 찌꺼기", caption: "평택 세교동 시공사례 사진입니다 · 싱크대 배수구 내부의 음식물·기름 찌꺼기" },
+  "manhole-onsite-work.jpg": { alt: "안성동 상가 시공사례에서 맨홀을 열고 관로를 세척하는 모습", caption: "안성동 상가 시공사례 사진입니다 · 맨홀을 열고 고압호스로 관로를 세척하는 모습" },
+  "highpressure-yard-work.jpg": { alt: "안성 양성면 시공사례에서 마당 정화조 배관을 고압으로 세척하는 모습", caption: "안성 양성면 시공사례 사진입니다 · 정화조·배관 라인을 고압으로 세척하는 모습" },
+  "market-kitchen-drain-work.jpg": { alt: "오산동 마트킹 시공사례에서 주방 하수구막힘을 처리하는 모습", caption: "오산동 마트킹 시공사례 사진입니다 · 셕션 작업 후 고압세척으로 마무리" },
+  "pipe-scale-buildup.jpg": { alt: "천안 불당동 시공사례에서 제거한 배관 이음부의 기름때·스케일", caption: "천안 불당동 시공사례 사진입니다 · 제거한 배관 이음부에 낀 기름때·스케일" },
+};
+
+function photo(file) {
+  return { file, ...PHOTO_SOURCE[file] };
+}
+
+// ---------- 지역별 정보: 실제 사진 배치 (사진은 실제로 쓰인 그 지역 페이지가 아니어도, 캡션에는 항상 원래 출처를 표기) ----------
 const CITIES = {
   "평택": {
     intro: `평택시 안팎의 아파트·상가·식당·원룸 현장에서 꾸준히 출동해 온 지역입니다. 최근에도 소사벌·세교동·비전동·고덕동·안중읍 등에서 하수구막힘, 싱크대막힘, 변기막힘 출동이 있었습니다.`,
-    hubPhoto: { file: "equipment-spring-camera.jpg", alt: "평택 현장에 투입되는 전동스프링 장비와 관로 내시경 카메라", caption: "실제 출동 현장에서 사용하는 전동스프링·내시경 카메라 장비" },
+    hubPhoto: photo("equipment-spring-camera.jpg"),
     photos: {
-      "하수구막힘": { file: "pipe-scope-inspection.jpg", alt: "내시경 카메라로 확인한 배관 내부 스케일 적체 모습", caption: "내시경 카메라로 확인한 배관 내부 스케일(찌든때) — 실제 현장 사진" },
-      "변기막힘": { file: "toilet-out-of-order.jpg", alt: "변기막힘으로 사용이 중단된 현장 모습", caption: "변기막힘으로 임시 사용중단 안내가 붙은 실제 현장 사진" },
-      "싱크대막힘": { file: "sink-clog-debris.jpg", alt: "싱크대 배수구 내부의 음식물 찌꺼기 적체 모습", caption: "싱크대 배수구 내부의 음식물·기름 찌꺼기 — 실제 현장 사진" },
-      "누수": { file: "equipment-spring-camera.jpg", alt: "누수 위치 확인에도 쓰이는 내시경 카메라 장비", caption: "배관 내부 확인·누수 위치 탐지에 함께 사용되는 내시경 카메라 장비" },
-      "고압세척": { file: "highpressure-yard-work.jpg", alt: "고압호스로 배관을 세척하는 실제 작업 현장", caption: "고압호스로 배관 라인을 세척하는 실제 작업 현장 사진" },
+      "하수구막힘": photo("pipe-scope-inspection.jpg"),
+      "변기막힘": photo("toilet-out-of-order.jpg"),
+      "싱크대막힘": photo("sink-clog-debris.jpg"),
+      "누수": photo("equipment-spring-camera.jpg"),
+      "고압세척": photo("highpressure-yard-work.jpg"),
     },
   },
   "안성": {
     intro: `안성시 공도읍·안성동·양성면·석정동 등에서 원룸, 상가, 식당 하수구막힘과 고압세척 작업으로 출동해 온 지역입니다.`,
-    hubPhoto: { file: "manhole-onsite-work.jpg", alt: "안성 상가 맨홀을 열고 고압세척 작업하는 현장", caption: "맨홀을 열고 고압호스로 관로를 세척하는 실제 작업 현장" },
+    hubPhoto: photo("manhole-onsite-work.jpg"),
     photos: {
-      "하수구막힘": { file: "manhole-onsite-work.jpg", alt: "맨홀을 열고 관로를 점검하는 실제 작업 현장", caption: "맨홀을 열고 고압호스로 관로를 세척하는 실제 작업 현장" },
-      "변기막힘": { file: "toilet-out-of-order.jpg", alt: "변기막힘으로 사용이 중단된 현장 모습", caption: "변기막힘으로 임시 사용중단 안내가 붙은 실제 현장 사진" },
-      "싱크대막힘": { file: "sink-clog-debris.jpg", alt: "싱크대 배수구 내부의 음식물 찌꺼기 적체 모습", caption: "싱크대 배수구 내부의 음식물·기름 찌꺼기 — 실제 현장 사진" },
-      "누수": { file: "equipment-spring-camera.jpg", alt: "누수 위치 확인에도 쓰이는 내시경 카메라 장비", caption: "배관 내부 확인·누수 위치 탐지에 함께 사용되는 내시경 카메라 장비" },
-      "고압세척": { file: "highpressure-yard-work.jpg", alt: "마당 정화조 배관을 고압으로 세척하는 실제 작업 현장", caption: "정화조·배관 라인을 고압으로 세척하는 실제 작업 현장 사진" },
+      "하수구막힘": photo("manhole-onsite-work.jpg"),
+      "변기막힘": photo("toilet-out-of-order.jpg"),
+      "싱크대막힘": photo("sink-clog-debris.jpg"),
+      "누수": photo("equipment-spring-camera.jpg"),
+      "고압세척": photo("highpressure-yard-work.jpg"),
     },
   },
   "오산": {
     intro: `오산동 등 상가·식당 밀집 지역에서 하수구막힘과 셕션·고압세척 작업으로 출동해 온 지역입니다.`,
-    hubPhoto: { file: "market-kitchen-drain-work.jpg", alt: "오산 상가 주방 하수구막힘 작업 현장", caption: "주방 하수구막힘을 셕션·고압세척으로 처리하는 실제 현장" },
+    hubPhoto: photo("market-kitchen-drain-work.jpg"),
     photos: {
-      "하수구막힘": { file: "market-kitchen-drain-work.jpg", alt: "상가 주방 하수구막힘 작업 현장", caption: "주방 하수구막힘을 셕션·고압세척으로 처리하는 실제 현장" },
-      "변기막힘": { file: "toilet-out-of-order.jpg", alt: "변기막힘으로 사용이 중단된 현장 모습", caption: "변기막힘으로 임시 사용중단 안내가 붙은 실제 현장 사진" },
-      "싱크대막힘": { file: "sink-clog-debris.jpg", alt: "싱크대 배수구 내부의 음식물 찌꺼기 적체 모습", caption: "싱크대 배수구 내부의 음식물·기름 찌꺼기 — 실제 현장 사진" },
-      "누수": { file: "equipment-spring-camera.jpg", alt: "누수 위치 확인에도 쓰이는 내시경 카메라 장비", caption: "배관 내부 확인·누수 위치 탐지에 함께 사용되는 내시경 카메라 장비" },
-      "고압세척": { file: "market-kitchen-drain-work.jpg", alt: "상가 주방 하수구 고압세척 작업 현장", caption: "셕션 작업 후 고압세척으로 마무리한 실제 현장" },
+      "하수구막힘": photo("market-kitchen-drain-work.jpg"),
+      "변기막힘": photo("toilet-out-of-order.jpg"),
+      "싱크대막힘": photo("sink-clog-debris.jpg"),
+      "누수": photo("equipment-spring-camera.jpg"),
+      "고압세척": photo("market-kitchen-drain-work.jpg"),
     },
   },
   "천안서북구": {
     intro: `천안 불당동·두정동 등의 아파트, 식당 현장에서 싱크대막힘, 하수구막힘 작업으로 출동해 온 지역입니다.`,
-    hubPhoto: { file: "pipe-scale-buildup.jpg", alt: "배관 이음부에 낀 기름때·스케일 실물", caption: "제거한 배관 이음부에 낀 기름때·스케일 — 실제 현장 사진" },
+    hubPhoto: photo("pipe-scale-buildup.jpg"),
     photos: {
-      "하수구막힘": { file: "pipe-scope-inspection.jpg", alt: "내시경 카메라로 확인한 배관 내부 스케일 적체 모습", caption: "내시경 카메라로 확인한 배관 내부 스케일(찌든때) — 실제 현장 사진" },
-      "변기막힘": { file: "toilet-out-of-order.jpg", alt: "변기막힘으로 사용이 중단된 현장 모습", caption: "변기막힘으로 임시 사용중단 안내가 붙은 실제 현장 사진" },
-      "싱크대막힘": { file: "pipe-scale-buildup.jpg", alt: "배관 이음부에 낀 기름때·스케일 실물", caption: "아파트 싱크대 배관 이음부에 낀 기름때·스케일 — 실제 현장 사진" },
-      "누수": { file: "equipment-spring-camera.jpg", alt: "누수 위치 확인에도 쓰이는 내시경 카메라 장비", caption: "배관 내부 확인·누수 위치 탐지에 함께 사용되는 내시경 카메라 장비" },
-      "고압세척": { file: "highpressure-yard-work.jpg", alt: "고압호스로 배관을 세척하는 실제 작업 현장", caption: "고압호스로 배관 라인을 세척하는 실제 작업 현장 사진" },
+      "하수구막힘": photo("pipe-scope-inspection.jpg"),
+      "변기막힘": photo("toilet-out-of-order.jpg"),
+      "싱크대막힘": photo("pipe-scale-buildup.jpg"),
+      "누수": photo("equipment-spring-camera.jpg"),
+      "고압세척": photo("highpressure-yard-work.jpg"),
     },
   },
 };
