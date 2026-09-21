@@ -548,7 +548,15 @@ footer.site {
 }
 
 /* ---------- 구조 변형: 중앙정렬 히어로 ---------- */
-.hero-center { text-align: center; padding: 90px 0 0; }
+.hero-center {
+  text-align: center;
+  padding: 70px 0;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .hero-center .wrap { max-width: 760px; }
 .eyebrow-center { justify-content: center; }
 .eyebrow-center::before { display: none; }
