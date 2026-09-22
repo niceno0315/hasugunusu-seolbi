@@ -43,7 +43,7 @@ fs.writeFileSync(commitPayloadPath, JSON.stringify({ message, tree: newTree.sha,
 const newCommit = JSON.parse(gh([`repos/${REPO}/git/commits`, "--input", commitPayloadPath]));
 console.log("새 커밋:", newCommit.sha);
 
-gh([`repos/${REPO}/git/refs/heads/${BRANCH}`, "--method", "PATCH", "-f", `sha=${newCommit.sha}`, "-f", "force=false"]);
+gh([`repos/${REPO}/git/refs/heads/${BRANCH}`, "--method", "PATCH", "-f", `sha=${newCommit.sha}`]);
 console.log("완료: master 브랜치가 새 커밋을 가리키도록 업데이트됨");
 
 fs.unlinkSync(treePayloadPath);
