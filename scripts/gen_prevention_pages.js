@@ -7,6 +7,22 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const AREAS_DIR = path.join(ROOT, "areas");
 
+const SITE_URL = "https://hasugudoctor.co.kr";
+
+// 실제 사진 + 손으로 쓴 고유 콘텐츠가 있는 19개 지역만 우선 색인 오픈 (나머지 232개 지역은 noindex 유지)
+const LIVE_CITIES = new Set([
+  "평택", "안성", "오산", "천안서북구", "화성", "아산", "천안동남구",
+  "처인구", "기흥구", "수지구", "장안구", "권선구", "팔달구", "영통구",
+  "단원구", "상록구", "시흥", "군포", "의왕",
+]);
+
+function robotsBlock(area, url) {
+  if (LIVE_CITIES.has(area)) {
+    return `<meta name="robots" content="index, follow">\n<link rel="canonical" href="${url}">`;
+  }
+  return `<meta name="robots" content="noindex, nofollow">\n<!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->`;
+}
+
 // 한글 받침 유무에 따라 조사를 고르는 헬퍼 (예: josa("강남구", "은/는") -> "는")
 function josa(word, pair) {
   const [withBatchim, withoutBatchim] = pair.split("/");
@@ -2380,6 +2396,7 @@ function bodyFor(area, sym) {
 function symptomPageHtml(area, sym) {
   const s = SYMPTOMS[sym];
   const ph = CITIES[area].photos[sym];
+  const url = `${SITE_URL}/areas/${encodeURIComponent(area)}-${encodeURIComponent(sym)}.html`;
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -2387,8 +2404,7 @@ function symptomPageHtml(area, sym) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${area} ${sym} 예방법·비용·업체 안내 | 하수구누수종합설비</title>
 <meta name="description" content="${s.metaDesc(area)}">
-<meta name="robots" content="noindex, nofollow">
-<!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->
+${robotsBlock(area, url)}
 ${HEAD_STYLE}
 </head>
 <body>
@@ -2422,6 +2438,7 @@ ${FOOTER_BLOCK}
 function hubPageHtml(area) {
   const c = CITIES[area];
   const links = SYMPTOM_KEYS.map((sym) => `      <a href="${area}-${sym}.html">${area} ${sym}</a>`).join("\n");
+  const url = `${SITE_URL}/areas/${encodeURIComponent(area)}.html`;
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -2429,8 +2446,7 @@ function hubPageHtml(area) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${area} 배관·하수구막힘 예방법 안내 | 하수구누수종합설비</title>
 <meta name="description" content="${area} 지역 배관막힘, 하수구막힘, 누수 등 설비 문제의 원인과 예방법 안내. 접수 즉시 확인 후 신속하게 연결해 드립니다.">
-<meta name="robots" content="noindex, nofollow">
-<!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->
+${robotsBlock(area, url)}
 ${HEAD_STYLE}
 </head>
 <body>
