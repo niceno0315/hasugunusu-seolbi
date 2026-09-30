@@ -63,6 +63,21 @@ const CASES = [
   { slug: "cheonan-dujeongdong-restaurant", title: "천안 두정동 식당 하수구막힘", region: "천안시 서북구 두정동", photo: "floor-drain-scale-cheonan.jpg", alt: "상가 바닥 배수로", body: "음식점 하수구막힘 신고를 받고 출동한 현장입니다. 상가 바닥 배수로 상태를 점검하고 정비해 배수를 정상화했습니다." },
   { slug: "pyeongtaek-sosadong-apt", title: "평택 소사동 아파트 하수구막힘·고압세척", region: "평택시 소사동", photo: "pipe-ceiling-work.jpg", alt: "천장 배관 라인 작업 모습", body: "아파트 하수구막힘 신고를 받고 출동한 현장입니다. 천장을 지나는 배관 라인을 고압세척으로 정비해 막힘을 해결했습니다." },
   { slug: "pyeongtaek-songtan-restaurant", title: "평택 송탄 음식점 하수구막힘·하수구역류", region: "평택시 송탄", photo: "pipe-scale-chunk.jpg", alt: "배관 내부에 굳은 이물질", body: "음식점 하수구역류 신고를 받고 출동한 현장입니다. 배관 내부에 단단하게 굳은 이물질을 확인하고 제거한 뒤 고압세척으로 마무리했습니다." },
+
+  // ---------- 누수탐지 시공사례 ----------
+  { slug: "anseong-pyeongtaek-cheonan-cheongeum", title: "안성·평택·천안 누수탐지 청음·가스검사 후 굴착 배관연결", region: "안성·평택·천안 일대", photo: "leak-listening-device.jpg", alt: "청음탐지 장비로 누수 위치를 확인하는 모습", body: "누수 의심 신고를 받고 출동한 현장입니다. 청음탐지와 가스검사로 정확한 누수 위치를 먼저 확인한 뒤, 해당 구간만 굴착해 배관을 연결했습니다." },
+  { slug: "anseong-gongdoeup-oebu-nusu", title: "안성 공도읍 외부누수", region: "안성시 공도읍", photo: "leak-water-meter-flooded.jpg", alt: "물이 고인 수도계량기함", body: "외부 누수 신고를 받고 출동한 현장입니다. 계량기함 안에 물이 차 있는 것을 확인하고 누수 지점을 찾아 조치했습니다." },
+  { slug: "anseong-pungnim-sangga-baegwan", title: "안성 공도 풍림상가 배관노후 신설배관교체", region: "안성시 공도읍", photo: "leak-pipe-replace-closeup.jpg", alt: "노후 배관 교체 작업", body: "상가 배관 노후로 인한 누수 신고를 받고 출동한 현장입니다. 노후 배관을 확인하고 새 배관으로 교체하는 작업을 진행했습니다." },
+  { slug: "anseong-miyangmyeon-budongjeon", title: "안성 미양면 부동전교체", region: "안성시 미양면", photo: "leak-budongjeon-install.jpg", alt: "부동전(동파방지 수전) 설치 모습", body: "부동전 누수 신고를 받고 출동한 현장입니다. 노후된 부동전을 새것으로 교체해 동파와 누수를 함께 예방했습니다." },
+  { slug: "cheonan-dujeongdong-hwajangsil-damsu", title: "천안 두정동 화장실누수 담수테스트·우수관 방수작업", region: "천안시 서북구 두정동", photo: "leak-bathroom-hose-test.jpg", alt: "화장실 바닥 담수테스트 모습", body: "아파트 화장실누수 신고를 받고 출동한 현장입니다. 담수테스트로 누수 여부를 확인하고, 우수관 방수작업을 함께 진행했습니다." },
+  { slug: "cheonan-buldangdong-hwajangsil-meji", title: "천안 불당동 화장실누수 메지시공", region: "천안시 서북구 불당동", photo: "leak-bathroom-tile-waterproof.jpg", alt: "화장실 바닥 타일 메지 시공", body: "화장실누수 신고를 받고 출동한 현장입니다. 바닥 타일 메지(줄눈) 시공으로 방수 처리를 진행했습니다." },
+  { slug: "pyeongtaek-bijeondong-bundaegi", title: "평택 비전동 분배기누수 분배기 교체", region: "평택시 비전동", photo: "leak-distributor-box.jpg", alt: "분배기함 내부 배관", body: "분배기누수 신고를 받고 출동한 현장입니다. 분배기함 내부를 확인하고 노후된 분배기를 새것으로 교체했습니다." },
+  { slug: "pyeongtaek-segyodong-oebyeok", title: "평택 세교동 외벽누수 외벽코킹방수", region: "평택시 세교동", photo: "leak-exterior-caulking.jpg", alt: "외벽 코킹 방수 시공", body: "외벽누수 신고를 받고 출동한 현장입니다. 외벽 이음부에 코킹 방수 작업을 진행해 빗물 유입을 차단했습니다." },
+  { slug: "pyeongtaek-segyodong-hwajangsil-yuga", title: "평택 세교동 화장실누수 유가교체·방수작업", region: "평택시 세교동", photo: "leak-bathroom-floor-drain-repair.jpg", alt: "화장실 바닥 배수구(유가) 교체 작업", body: "화장실누수 신고를 받고 출동한 현장입니다. 바닥 배수구(유가) 주변을 철거해 상태를 확인하고, 교체 후 방수작업까지 마무리했습니다." },
+  { slug: "pyeongtaek-anseong-cheonan-apt-yeolhwasang", title: "평택·안성·천안 아파트 누수검사 실내열화상·공압검사", region: "평택·안성·천안 일대", photo: "leak-pressure-gauge-test.jpg", alt: "공압검사 압력게이지", body: "아파트 누수 의심 신고를 받고 출동한 현장입니다. 실내 열화상 검사와 공압검사를 함께 진행해 누수 위치를 정확히 확인했습니다." },
+  { slug: "pyeongtaek-yongidong-apt-damsu", title: "평택 용이동 아파트누수 담수테스트·열화상검사", region: "평택시 용이동", photo: "leak-bathroom-flood-test.jpg", alt: "화장실 바닥 담수테스트 현장", body: "아파트 화장실누수 신고를 받고 출동한 현장입니다. 담수테스트와 열화상검사를 함께 진행해 정확한 누수 지점을 확인했습니다." },
+  { slug: "pyeongtaek-jukbaekdong-boiler", title: "평택 죽백동 보일러누수 보일러공압검사", region: "평택시 죽백동", photo: "leak-boiler-pressure-test.jpg", alt: "보일러 배관 공압검사 압력게이지", body: "보일러누수 신고를 받고 출동한 현장입니다. 보일러 배관에 공압검사를 진행해 누수 여부와 위치를 확인했습니다." },
+  { slug: "pyeongtaek-jukbaekdong-hasugu-nusu", title: "평택 죽백동 하수구막힘·하수구누수검사", region: "평택시 죽백동", photo: "leak-drain-scope-inspection.jpg", alt: "내시경 카메라로 확인한 배관 내부", body: "하수구막힘과 누수가 함께 의심되는 신고를 받고 출동한 현장입니다. 내시경 카메라로 배관 내부를 확인해 원인을 진단한 뒤 조치했습니다." },
 ];
 
 function caseDetailHtml(c) {
