@@ -20,6 +20,10 @@ for (const area of LIVE_CITIES) {
   }
 }
 
+for (const f of fs.readdirSync(path.join(ROOT, "cases")).filter((f) => f.endsWith(".html")).sort()) {
+  urls.push(`${SITE_URL}/cases/${f}`);
+}
+
 const today = new Date().toISOString().slice(0, 10);
 const body = urls
   .map((u) => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`)
