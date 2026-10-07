@@ -466,6 +466,16 @@ const CASES = [
   },
 ];
 
+function ogBlock(title, desc, url, file) {
+  return `<meta property="og:type" content="article">
+<meta property="og:site_name" content="하수구누수종합설비">
+<meta property="og:title" content="${title} | 하수구누수종합설비">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${SITE_URL}/assets/img/${file}">
+<meta name="twitter:card" content="summary_large_image">`;
+}
+
 function figuresHtml(c) {
   const list = c.photos || [{ file: c.photo, alt: c.alt, caption: `${c.region} 시공사례 사진입니다 · ${c.alt}` }];
   return list
@@ -489,6 +499,7 @@ function caseDetailHtml(c) {
 <meta name="description" content="${c.region} ${c.title} 실제 시공사례입니다. 현장 사진과 함께 작업 내용을 안내해 드립니다.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="${url}">
+${ogBlock(`${c.title} 시공사례`, `${c.region} ${c.title} 실제 시공사례입니다. 현장 사진과 함께 작업 내용을 안내해 드립니다.`, url, c.photo)}
 <link rel="stylesheet" href="../css/style.css?v=6">
 </head>
 <body>
@@ -538,6 +549,7 @@ function casesIndexHtml() {
 <meta name="description" content="하수구누수종합설비의 실제 시공사례 모음입니다. 하수구막힘, 싱크대막힘, 변기막힘, 고압세척 등 실제 출동 현장 사진과 작업 내용을 확인하세요.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="${SITE_URL}/cases/index.html">
+${ogBlock("시공사례", "하수구누수종합설비의 실제 시공사례 모음입니다. 하수구막힘, 싱크대막힘, 변기막힘, 고압세척 등 실제 출동 현장 사진과 작업 내용을 확인하세요.", `${SITE_URL}/cases/index.html`, CASES[0].photo)}
 <link rel="stylesheet" href="../css/style.css?v=6">
 <style>
 .case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin: 32px 0; }

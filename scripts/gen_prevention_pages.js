@@ -23,6 +23,17 @@ function robotsBlock(area, url) {
   return `<meta name="robots" content="noindex, nofollow">\n<!-- TODO: 정식 오픈 시 위 robots 메타태그 제거, canonical 추가 -->`;
 }
 
+function ogBlock(area, title, desc, url, file) {
+  if (!LIVE_CITIES.has(area) || !file) return "";
+  return `<meta property="og:type" content="article">
+<meta property="og:site_name" content="하수구누수종합설비">
+<meta property="og:title" content="${title} | 하수구누수종합설비">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${SITE_URL}/assets/img/${file}">
+<meta name="twitter:card" content="summary_large_image">`;
+}
+
 // 한글 받침 유무에 따라 조사를 고르는 헬퍼 (예: josa("강남구", "은/는") -> "는")
 function josa(word, pair) {
   const [withBatchim, withoutBatchim] = pair.split("/");
@@ -2406,6 +2417,7 @@ function symptomPageHtml(area, sym) {
 <title>${area} ${sym} 예방법·비용·업체 안내 | 하수구누수종합설비</title>
 <meta name="description" content="${s.metaDesc(area)}">
 ${robotsBlock(area, url)}
+${ogBlock(area, `${area} ${sym} 예방법·비용·업체 안내`, s.metaDesc(area), url, ph.file)}
 ${HEAD_STYLE}
 </head>
 <body>
@@ -2448,6 +2460,7 @@ function hubPageHtml(area) {
 <title>${area} 배관·하수구막힘 예방법 안내 | 하수구누수종합설비</title>
 <meta name="description" content="${area} 지역 배관막힘, 하수구막힘, 누수 등 설비 문제의 원인과 예방법 안내. 접수 즉시 확인 후 신속하게 연결해 드립니다.">
 ${robotsBlock(area, url)}
+${ogBlock(area, `${area} 배관·하수구막힘 예방법 안내`, `${area} 지역 배관막힘, 하수구막힘, 누수 등 설비 문제의 원인과 예방법 안내.`, url, c.hubPhoto && c.hubPhoto.file)}
 ${HEAD_STYLE}
 </head>
 <body>
